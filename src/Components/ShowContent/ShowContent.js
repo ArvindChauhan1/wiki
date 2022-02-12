@@ -22,7 +22,7 @@ const ShowContent = () => {
     // console.log(resp.data === null ? {} : resp.data)
     setData(resp.data === null ? {} : resp.data)
     setIsLoading(false)
-  }, [setData])
+  }, [setData, setIsLoading, searchTerm])
 
   useState(() => {
     fetchSummary()
@@ -42,7 +42,7 @@ const ShowContent = () => {
 
   return <>
     <Row type="flex" justify="center" gutter={[8, 24]}>
-      {isLoading ? <Col style={{margin:"200px 0 0 0"}} >
+      {isLoading ? <Col style={{ margin: "200px 0 0 0" }} >
         <Spin tip="Loading..."></Spin>
       </Col> :
         <>
@@ -56,13 +56,17 @@ const ShowContent = () => {
             </>
           </Col>
           <Col span={19}>
+            <a href={`https://en.wikipedia.org/?curid=${data.pageid}`} rel="noopener noreferrer" target="_blank" >
+              wikipedia link
+            </a>
+          </Col>
+          <Col span={19}>
             <Button type="primary" danger onClick={handleClick} icon={<HeartOutlined />} >
               {btn}favorite
             </Button>
           </Col>
         </>
       }
-
     </Row>
   </>;
 };
