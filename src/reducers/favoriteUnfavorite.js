@@ -1,4 +1,4 @@
-const initialState = JSON.parse(localStorage.getItem("redux"));
+const initialState = JSON.parse(localStorage.getItem("redux"))===null?[]:JSON.parse(localStorage.getItem("redux"));
 
 const favoriteUnfavorite = (state = initialState, action) => {
   switch (action.type) {
