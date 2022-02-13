@@ -10,7 +10,6 @@ store.subscribe(() => {
   let item = store.getState();
   item = JSON.stringify(item.favoriteUnfavorite);
   localStorage.setItem("redux", item);
-  console.log(store.getState());
 });
 
 ReactDOM.render(

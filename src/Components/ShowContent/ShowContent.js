@@ -18,8 +18,7 @@ const ShowContent = () => {
 
   const fetchSummary = useCallback(async () => {
     const resp = await http.get(`api/rest_v1/page/summary/${searchTerm}?redirect=true`)
-    // console.log(resp2.data)
-    // console.log(resp.data === null ? {} : resp.data)
+
     setData(resp.data === null ? {} : resp.data)
     setIsLoading(false)
   }, [setData, setIsLoading, searchTerm])
@@ -38,7 +37,6 @@ const ShowContent = () => {
     }
   }
 
-  console.log(data)
 
   return <>
     <Row type="flex" justify="center" gutter={[8, 24]}>
